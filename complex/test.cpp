@@ -5,10 +5,10 @@ using namespace std;
 
 class Complex {
 public:
-    Complex () {
+    Complex() {
     }
     
-    Complex (const double real, const double imaginary) {
+    Complex(const double real, const double imaginary) {
         _real = real;
         _imaginary = imaginary;
     }
@@ -16,7 +16,7 @@ public:
         _real = copied._real;
         _imaginary = copied._imaginary;
     }
-    Complex& operator=(const Complex& copied){
+    Complex& operator=(const Complex& copied) {
         Complex a(*this);
         return a;
     }
@@ -24,7 +24,7 @@ public:
         
     }
     bool operator!=(const Complex& other) const {
-        if (_real != other._real || _imaginary != other._imaginary) {
+        if (_real != other._real && _imaginary != other._imaginary) {
             return true;
         }
         else {
@@ -39,7 +39,7 @@ public:
             return true;
         }
     }
-     Complex operator-()const{
+    Complex operator-() const {
         Complex a (*this);
         a._real = -a._real;
         a._imaginary = -a._imaginary;
@@ -71,10 +71,10 @@ public:
         a._imaginary = (a.module() / other.module()) * sin(b.argument() - other.argument());
         return a;
     }
-    double module() const{
+    double module() const {
         return (sqrt(_real * _real + _imaginary * _imaginary));
     }
-    double argument() const{
+    double argument() const {
         return asin(_real / (module()));
     }
     Complex Conjugate() const {
